@@ -1,6 +1,6 @@
 <launch>
     <arg name="config_file" default="$(find saya_bringup)/config/update_map.yaml"/>
-    <node pkg="saya_bringup" type="update_map.py" name="updating_map">
+    <node pkg="saya_bringup" type="update_map.py" name="updating_map" output="screen">
     <rosparam file="$(arg config_file)" command="load"/>
     </node>
 </launch>
