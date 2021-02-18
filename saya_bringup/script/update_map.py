@@ -32,7 +32,7 @@ class update_map:
 
     def check_if_gets_stucked(self):
         # try:
-        position, quaternion = self.tf.lookupTransform("/map", "/base_link")
+        position, quaternion = self.tf.lookupTransform("/map", "/base_link", rospy.Time(0))
         for i in range(len(self.boundaries)):
             a,b,c,d = self.sort_positions(i)
             print(a,b,c,d)
