@@ -31,24 +31,25 @@ class update_map:
         return a,b,c,d
 
     def check_if_gets_stucked(self):
-        # try:
-        position, quaternion = self.tf.lookupTransform("/map", "/base_link", rospy.Time(0))
-        for i in range(len(self.boundaries)):
-            a,b,c,d = self.sort_positions(i)
-            print(a,b,c,d)
-            print(position)
-            if a <= position[0] and b>= position[0]:
-                if c<= position[1] and c>= position[1]:
-                    return True
-        return False
-        # except:
-        #     return False
+        try:
+            position, quaternion = self.tf.lookupTransform("/map", "/base_link", rospy.Time(0))
+            for i in self.boundaries:
+                a,b,c,d = self.sort_positions(i)
+                print(a,b,c,d)
+                print(position)
+                if a <= position[0] and b>= position[0]:
+                    if c<= position[1] and d>= position[1]:
+                        return True
+            return False
+        except:
+            return False
 
 
 
 
 
     def process(self):
+        time.sleep(5)
         while not rospy.is_shutdown():
             result = self.check_if_gets_stucked()
             print(result)
