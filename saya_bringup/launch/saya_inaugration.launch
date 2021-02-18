@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<launch>
+<!--	  <include file="$(find video_stream)/launch/camera.launch"/>-->
+<!--	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />-->
+
+<!--	<node pkg="web_video_server" name="video_server" type="web_video_server" >-->
+<!--	</node>	-->
+
+	<!-- Load robot description-->
+	
+	 
+
+	
+	<node pkg="saya_bringup" name="speech_start_stop" type="speech_start_stop.py" >
+	</node>	
+	<node pkg="saya_control" name="joystick" type="joystick_ui.py" >
+	</node>	
+	<!-- <node pkg="saya_control" name="keyboard" type="keyboard_ui.py" >
+	</node>	 -->
+
+<!--	<include file="$(find camera_operation)/launch/face_rec.launch" />-->
+	
+	<node pkg="saya_bringup" name="compilance" type="compliance.py" >
+	</node>	
+	 <include file="$(find learning_joy)/launch/turtle_joy.launch" /> 
+	 <include file="$(find saya_states)/launch/navigation.launch" /> 
+	 	<node pkg="saya_bringup" name="joy" type="joy.py" >
+	</node>	
+
+	<!-- <include file="$(find saya_control)/launch/teleop.launch" /> -->
+	
+<!--	<node pkg="ros_waypoint_generator" name="ui_nav" type="ui_nav_waypoints.py" >-->
+<!--	</node>	-->
+<!--	<node pkg="ros_waypoint_generator" name="play_music" type="play_mp3.py" >-->
+<!--	</node>	-->
+<!--	-->
+    
+</launch>

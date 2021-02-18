@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<launch>
+
+	    <node name="controller1" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=front_left_wheel_joint 
+			--port=/dev/front_left_wheel
+			--maxspeed=15.0
+			--minspeed=-15.0
+			--acceleration=4.0
+			--rate=10">    	
+	    </node>
+	    
+<!--
+	    speed are in radians per second... 
+	    max rpm of motor is around 250
+	    max linear speed requied is 1m/s (i.e 190 rpm)
+	    for 1m/s ... 20 rad/s is enough (for 10cm dia wheel)
+	    
+-->
+	    
+	    <node name="controller2" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=front_right_wheel_joint 
+			--port=/dev/front_right_wheel
+			--maxspeed=15.0
+			--minspeed=-15.0
+			--acceleration=4.0
+			--rate=10">    	
+	    </node>
+	    <node name="controller3" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=rear_left_wheel_joint 
+			--port=/dev/rear_left_wheel
+			--maxspeed=15.0
+			--minspeed=-15.0
+			--acceleration=4.0
+			--rate=10">    	
+	    </node>
+	    <node name="controller4" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=rear_right_wheel_joint 
+			--port=/dev/rear_right_wheel
+			--maxspeed=15.0
+			--minspeed=-15.0
+			--acceleration=4.0
+			--rate=10">    	
+	    </node>
+
+</launch>

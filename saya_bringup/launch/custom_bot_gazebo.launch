@@ -1,0 +1,14 @@
+<launch>
+    <param name = "robot_description" textfile = "$(find custom_bot)/urdf/custom_bot.urdf"/>
+    
+    <include file = "$(find gazebo_ros)/launch/empty_world.launch"/>
+    
+    <node name = "spawn_urdf" pkg = "gazebo_ros" type = "spawn_model" args = "-param robot_description -urdf -model custom_bot">
+    </node>
+    
+    <rosparam file = "$(find custom_bot)/config/diff_drive_params.yaml" command = "load"/>
+
+    <node name = "custom_bot_diff_controller" pkg = "controller_manager" type = "spawner" respawn = "false" output = "screen" args = "mobile_base_controller"/>
+
+    <!--<remap from = "/mobile_base_controller/cmd_vel" to = "/cmd_vel_mux/input/teleop"/>-->
+</launch>

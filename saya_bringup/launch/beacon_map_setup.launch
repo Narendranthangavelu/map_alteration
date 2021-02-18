@@ -1,0 +1,18 @@
+<launch>
+  <include file="$(find saya_bringup)/launch/motor_controller.launch" />
+  <node name="map_node" pkg="map_server" type="map_server" args="/home/pi/new_office_map.yaml" respawn="false">
+    <param name="frame_id" value="/map" />
+  </node>
+
+  <!-- =========================================================================================== -->
+
+  <!-- Dummy Static Transform Publisher to join base_link to map. This has to be disabled while using amcl node -->
+  <node pkg="tf" type="static_transform_publisher" name="dummy_tf_publisher" args="0 0 0 0 0 0 1 map odom 100" />
+  
+  <include file="$(find hdf_base)/launch/hdf_base.launch" />
+  
+  <include file="$(find marvelmind_nav)/launch/marvelmind.launch" />
+  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+</launch>
+
+

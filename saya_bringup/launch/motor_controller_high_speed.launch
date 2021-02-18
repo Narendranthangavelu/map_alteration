@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+
+	    <node name="controller1" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=front_left_wheel_joint 
+			--port=/dev/front_left_wheel
+			--maxspeed=15
+			--minspeed=-15
+			--acceleration=30.0
+			--rate=10">    	
+	    </node>
+	    <node name="controller2" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=front_right_wheel_joint 
+			--port=/dev/front_right_wheel
+			--maxspeed=15
+			--minspeed=-15
+			--acceleration=30.0
+			--rate=10">    	
+	    </node>
+	    <node name="controller3" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=rear_left_wheel_joint 
+			--port=/dev/rear_left_wheel
+			--maxspeed=15
+			--minspeed=-15
+			--acceleration=30.0
+			--rate=10">    	
+	    </node>
+	    <node name="controller4" pkg="rhino_driver" type="driver.py" output="screen" 
+		args="--joint_name=rear_right_wheel_joint 
+			--port=/dev/rear_right_wheel
+			--maxspeed=15
+			--minspeed=-15
+			--acceleration=30.0
+			--rate=10">    	
+	    </node>
+
+</launch>

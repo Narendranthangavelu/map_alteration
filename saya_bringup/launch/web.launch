@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<include file="$(find saya_bringup)/launch/rosbridge_websocket.launch" />
+
+<!--
+	<node pkg="web_video_server" name="video_server" type="web_video_server" >
+	</node>	
+-->
+
+	
+    
+</launch>

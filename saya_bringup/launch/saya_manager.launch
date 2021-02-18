@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+	  
+
+	<node pkg="saya_bringup" name="manager" type="saya_manager.py" output="screen">
+	</node>	
+
+<node pkg="i_o_receive_and_publish_pkg" type="input_switch_node.py" name="gpio" output="screen"/>
+    	<node pkg="lcd_pkg" name="lcd" type="lcd_general_node.py" output="screen">
+	</node>
+</launch>

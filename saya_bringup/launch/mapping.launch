@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	
+	<node pkg="saya_bringup" name="teleop_retrans" type="mobile_teleop.py" output="screen">
+	</node>
+	<include file="$(find hdf_base)/launch/hdf_base.launch" />
+	<include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+	<include file="$(find laser_filters)/examples/range_filter_example.launch" />
+		<node pkg="saya_bringup" name="compliance" type="compliance_four_wheel.py" output="screen">
+	</node>
+<!--
+	<include file="$(find hdf_nav)/launch/move_base.launch" />
+-->
+
+<include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+	<include file="$(find hdf_nav)/launch/gmapping.launch" />
+</launch>

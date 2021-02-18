@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<!--
+	<node pkg="saya_bringup" name="teleop_trans" type="mobile_teleop.py" output="screen">
+	</node>
+-->
+
+<!--
+for normal navigation
+-->
+	<include file="$(find saya_states)/launch/navigation.launch" /> 
+	<node pkg="main_operations" name="main_action_server" type="main_action_server.py" output="screen">
+	</node>
+	<node pkg="main_operations" name="main_operations_node" type="main_operations_node.py" output="screen">
+	</node>
+	<include file="$(find marvelmind_nav)/launch/marvelmind.launch" />
+	<include file="$(find imu_filter_madgwick)/filter.launch" />
+	<node pkg="saya_bringup" name="compliance" type="compliance_four_wheel.py" output="screen">
+	</node>
+<!--
+	<node pkg="teleop_twist_keyboard" name="teleop_holonomic" type="teleop_twist_keyboard.py" >
+	</node>
+-->
+<!--
+		<node pkg="saya_bringup" name="amcl_update" type="update_amcl_pose.py" output="screen">
+	</node>
+-->
+<!--
+	<include file="$(find learning_joy)/launch/turtle_joy.launch" /> 
+-->
+	
+<!--
+	for teleop only video iuse
+-->
+<!--
+	<include file="$(find saya_states)/launch/teleop.launch" />
+-->
+
+
+</launch>
